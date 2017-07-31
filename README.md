@@ -1,4 +1,4 @@
-# Odin Bison Starter
+# Starter
 
 How to use:
 
@@ -6,9 +6,9 @@ Add the dependency to your project's pom
 
 
 		<dependency>
-			<groupId>b.pi.bison</groupId>
-            <artifactId>bison.odin.starter</artifactId>
-			<version>1.0.0-SNAPSHOT</version>
+			<groupId>com.nicmaster.troll</groupId>
+            	<artifactId>test.starter</artifactId>
+            	<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 
 Add config for where MQ is under
@@ -17,30 +17,30 @@ spring:
   cloud:
     stream:
       jms.ibmmq:
-        host: 22.144.141.127
+        host: localhost
         port: 1416
-        queueManager: MQBSDEV1
-        channel: BISONDEV.SVRCONN
+        queueManager: DEV
+        channel: testDEV.SVRCONN
         transportType: 1
         binder:
           default-destination-type: queue
 
     bindings:
     output:
-      destination: ODIN.MESSAGE.SOURCE
+      destination: TEST.SOURCE
       group: default
     database:
-      destination: ODIN.DATABASE
+      destination: MESSAGE.DATABASE
 
-You can start sending Odin Messages using
+You can start sending Messages using
 
   @Autowired
-       private OdinMessageService odinMessageService;
+       private MessageService messageService;
 
-         final OdinMessage odinMessage =  new OdinMessage()
+         final Message message =  new Message()
 
-         // Map your data to conform to the Odin Message Object.
+         // Map your data to conform to the Message Object.
 
-       odinMessageService.submitOdinMesssage(odinMessage);
+       messageService.submitMesssage(message);
 
 # test-starter
