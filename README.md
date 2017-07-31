@@ -24,7 +24,6 @@ spring:
         transportType: 1
         binder:
           default-destination-type: queue
-
     bindings:
     output:
       destination: TEST.SOURCE
@@ -42,5 +41,3 @@ You can start sending Messages using
          // Map your data to conform to the Message Object.
 
        messageService.submitMesssage(message);
-
-# test-starter
